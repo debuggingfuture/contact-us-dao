@@ -1,0 +1,31 @@
+{
+  "name": "crypto",
+  "repository": "https://github.com/vercel/examples.git",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@lighthouse-web3/sdk": "^0.2.5",
+    "immer": "^10.0.2",
+    "jest": "^29.5.0",
+    "keyv": "^4.5.2",
+    "next": "canary",
+    "react": "latest",
+    "react-dom": "latest",
+    "ts-jest": "^29.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.5",
+    "@types/react": "latest",
+    "eslint": "^8.36.0",
+    "eslint-config-next": "canary",
+    "turbo": "^1.8.5",
+    "typescript": "4.7.4"
+  }
+}

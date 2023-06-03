@@ -1,0 +1,12 @@
+[
+    {
+        "op": "add",
+        "path": ["user-3"],
+        "value":  {"name": "c@c.com"}
+    },
+    {
+        "op": "replace",
+        "path": ["user-1"],
+        "value":  {"name": "z@z.com"}
+    }
+]
