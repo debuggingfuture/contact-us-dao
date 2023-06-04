@@ -1,4 +1,20 @@
 ---
+### Overview
+This services enable storing mailing list & contacts on filecoin where community can vote to decide who can contact them and the file is encrypted and only shared to operator (who is sending the message) after DAO approval.
+
+A more complete background on motivation and architecture can be found [here](https://docs.google.com/presentation/d/1CYfaMsRAmkGg-UDutYKVrySTIoC73teIOt--M-s6UDs/edit)
+
+This includes 
+1) server which can be execute by creator / operator
+2) smart contracts for governance by voting
+
+Smart contract is modified with reference to https://github.com/filecoin-project/fevm-data-dao-kit
+
+
+### Demo
+- GET http://localhost:3000/api/add?id=a&email=a@a.com&name=a
+- GET http://localhost:3000/api/add?id=b&email=b@b.com&name=b
+
 ### Design on data structure
 
 As lighthouse is a perpertual storage with cost charged upfront by size and file deletion is not possible, and data set could be incremental natually, e.g. new members, update of emails. We do a event sourcing approach, to be flexible about dataset and avoid duplications of data
@@ -12,11 +28,28 @@ contacts-1.json
 contacts-2.json
 ```
 (Pruning of such dataset is in theory possible, while not current focus)
+
+### Design on Membership
+
+We do not assume every contact is by default a member of the DAO. The way Governance Token distributed is decoupled and totally subject to community's decisions. Contact manipulation is separated from the contract. 
+
+### Governance on Operator
+Could be 
+- dedicated owner (whitelisted by wallet adderss),
+  - (create isWhiteListed method at contract and apply in access control)
+- or holding over particular token threshold
+  - (use balanceOf method in access control)
+
+### Reward 
+- We could also reward operator for computation at the proposal
+
 ---
 
 ### Codebase
 
 -   originally generated via nextjs edge template
+
+env-cmd yarn hardhat run scripts/propose.js
 
 ---
 
